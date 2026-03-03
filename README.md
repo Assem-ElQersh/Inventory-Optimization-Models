@@ -99,9 +99,9 @@ $$Q^* = \sqrt{\frac{2 S D}{h \cdot c}}$$
 
 For a horizon of $n$ periods with per-period demand $d_1, d_2, \ldots, d_n$:
 
-$$C[0] = 0$$
-
-$$C[j] = \min_{0 \le i < j} \left\{ C[i] + S + H(i, j) \right\}, \quad j = 1, \ldots, n$$
+With prefix sums $P[i] = \sum_{t=1}^{i} d_t$, 
+the inner sum becomes $P[j-1] - P[k]$, 
+computable in $O(1)$.
 
 where $H(i, j)$ is the holding cost when ordering $\sum_{k=i}^{j-1} d_k$ at period $i$ to cover periods $i$ through $j-1$:
 
