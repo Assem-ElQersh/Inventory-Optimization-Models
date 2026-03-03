@@ -261,4 +261,4 @@ PPO                          1310.00       +6.1%  (after 50k steps)
 
 ## License
 
-MIT
+MIT License. See the [LICENSE](LICENSE) file for details.
