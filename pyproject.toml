@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inventory-optimization"
+version = "1.0.0"
+description = "Classical and learning-based inventory optimization models"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Assem Elqersh" }]
+keywords = [
+  "inventory",
+  "operations-research",
+  "dynamic-programming",
+  "wagner-whitin",
+  "reinforcement-learning",
+  "supply-chain",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering",
+  "Intended Audience :: Science/Research",
+]
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "matplotlib>=3.7",
+  "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+gui = ["matplotlib>=3.7"]
+rl = ["gymnasium>=0.29", "stable-baselines3>=2.0"]
+dev = [
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+  "ruff>=0.1",
+  "mypy>=1.5",
+]
+all = [
+  "gymnasium>=0.29",
+  "stable-baselines3>=2.0",
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+  "ruff>=0.1",
+  "mypy>=1.5",
+]
+
+[project.scripts]
+inventory-gui = "inventory_optimization.gui.app:main"
+
+[project.urls]
+"Homepage" = "https://github.com/assem-elqersh/Inventory-Optimization-Models"
+"Bug Reports" = "https://github.com/assem-elqersh/Inventory-Optimization-Models/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["inventory_optimization*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true
